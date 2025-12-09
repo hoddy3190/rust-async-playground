@@ -8,8 +8,8 @@ use std::time::Duration;
  */
 
 fn main() {
-    std::thread::spawn(|| {
-        std::thread::sleep(Duration::from_secs(3));
+    std::thread::spawn(|| loop {
+        std::thread::sleep(Duration::from_secs(1));
         println!(
             "woke up 1! {} {:?}",
             process::id(),
@@ -18,7 +18,7 @@ fn main() {
     });
 
     std::thread::spawn(|| {
-        std::thread::sleep(Duration::from_secs(3));
+        std::thread::sleep(Duration::from_secs(1));
         println!(
             "woke up 2! {} {:?}",
             process::id(),
